@@ -8,16 +8,17 @@ import androidx.activity.viewModels
 import com.example.showscroll.R
 import com.example.showscroll.data.Series
 import com.example.showscroll.databinding.ActivitySeriesBinding
+import com.example.showscroll.features.showdetail.presentation.ShowDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SeriesActivity : AppCompatActivity() {
+class ShowActivity : AppCompatActivity() {
   private lateinit var binding: ActivitySeriesBinding
-  private val seriesViewModel: SeriesViewModel by viewModels()
-  private val adapterSeries = SeriesAdapter(::seriesClickListener)
+  private val seriesViewModel: ShowViewModel by viewModels()
+  private val adapterSeries = ShowAdapter(::seriesClickListener)
 
   private fun seriesClickListener(series: Series) {
-    //startActivity(SeriesDetail.createIntent(this, series))
+    startActivity(ShowDetailActivity.createIntent(this, series))
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {

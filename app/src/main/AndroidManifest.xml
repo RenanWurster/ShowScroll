@@ -16,7 +16,7 @@
       android:theme="@style/Theme.ShowScroll"
       tools:targetApi="31">
     <activity
-        android:name=".features.home.presentation.SeriesActivity"
+        android:name=".features.home.presentation.ShowActivity"
         android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
@@ -24,6 +24,8 @@
         <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
+    <activity android:name="com.example.showscroll.features.showdetail.presentation.ShowDetailActivity"
+        android:parentActivityName=".features.showdetail.presentation.ShowDetailActivity"/>
   </application>
 
 </manifest>

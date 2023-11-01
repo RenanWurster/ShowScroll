@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SeriesViewModel @Inject constructor(private val seriesRepository: SeriesRepository): ViewModel() {
+class ShowViewModel @Inject constructor(private val seriesRepository: SeriesRepository): ViewModel() {
 
     private val _series = MutableLiveData<List<Series>>()
     val series : LiveData<List<Series>> = _series

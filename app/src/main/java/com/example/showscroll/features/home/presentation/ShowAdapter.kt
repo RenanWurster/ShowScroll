@@ -12,10 +12,10 @@ import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.example.showscroll.R
 import com.example.showscroll.data.Series
-import com.example.showscroll.features.home.presentation.SeriesAdapter.SeriesViewHolder
+import com.example.showscroll.features.home.presentation.ShowAdapter.SeriesViewHolder
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-class SeriesAdapter(private val callback: (Series) -> Unit) :
+class ShowAdapter(private val callback: (Series) -> Unit) :
     ListAdapter<Series, SeriesViewHolder>(SeriesDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeriesViewHolder {
