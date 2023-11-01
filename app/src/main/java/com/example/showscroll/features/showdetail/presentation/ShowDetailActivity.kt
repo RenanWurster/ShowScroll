@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -43,8 +44,6 @@ class ShowDetailActivity : AppCompatActivity() {
         binding = ActivitySeriesDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         binding.rvSeasons.adapter = seasonsAdapter
 
         series = intent.extras?.get(SERIES_KEY) as Series
@@ -66,7 +65,13 @@ class ShowDetailActivity : AppCompatActivity() {
             seasonsAdapter.submitList(it)
         }
         })
+    }
 
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressedDispatcher.onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
