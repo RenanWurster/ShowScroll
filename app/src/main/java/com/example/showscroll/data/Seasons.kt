@@ -1,4 +1,4 @@
-package com.example.retrofit.seriesdetail.domain
+package com.example.showscroll.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -10,10 +10,10 @@ data class Seasons(
     val number: Int?,
     val summary: String?,
     val episodeOrder: Int?,
-    val image: Image?
+    val image: ImageSeasons?
 ) : Parcelable
 @Parcelize
-data class Image(
+data class ImageSeasons(
     val medium: String?,
     val original: String?
     ): Parcelable

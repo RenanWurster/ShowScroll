@@ -2,7 +2,7 @@ package com.example.showscroll.features.showdetail.presentation
 
 import androidx.lifecycle.*
 import com.example.showscroll.features.showdetail.data.SeriesDetailRepository
-import com.example.retrofit.seriesdetail.domain.Seasons
+import com.example.showscroll.data.Seasons
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

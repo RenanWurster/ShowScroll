@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
-import com.example.retrofit.seriesdetail.domain.Seasons
+import com.example.showscroll.data.Seasons
 import com.example.showscroll.R
 import com.example.showscroll.features.showdetail.presentation.ShowDetailAdapter.SeasonsViewHolder
 import kotlinx.coroutines.ExperimentalCoroutinesApi

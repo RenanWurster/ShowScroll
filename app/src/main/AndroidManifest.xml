@@ -26,6 +26,8 @@
     </activity>
     <activity android:name="com.example.showscroll.features.showdetail.presentation.ShowDetailActivity"
         android:parentActivityName=".features.showdetail.presentation.ShowDetailActivity"/>
+    <activity android:name="com.example.showscroll.features.seasons.presentation.SeasonActivity"
+        />
   </application>
 
 </manifest>

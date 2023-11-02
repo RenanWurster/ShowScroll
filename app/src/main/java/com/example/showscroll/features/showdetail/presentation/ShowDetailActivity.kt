@@ -10,9 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import coil.load
 import coil.transform.RoundedCornersTransformation
-import com.example.retrofit.seriesdetail.domain.Seasons
+import com.example.showscroll.data.Seasons
 import com.example.showscroll.data.Series
 import com.example.showscroll.databinding.ActivitySeriesDetailBinding
+import com.example.showscroll.features.seasons.presentation.SeasonActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,9 +23,8 @@ class ShowDetailActivity : AppCompatActivity() {
     private val showDetailViewModel: ShowDetailViewModel by viewModels()
     private val seasonsAdapter = ShowDetailAdapter(::seasonsClickListener)
 
-
     private fun seasonsClickListener(seasons: Seasons) {
-        //startActivity(SeasonActivity.createIntent1(this,seasons))
+        startActivity(SeasonActivity.createIntent1(this, seasons))
     }
 
     companion object {
@@ -34,9 +34,7 @@ class ShowDetailActivity : AppCompatActivity() {
             val intent = Intent(context, ShowDetailActivity::class.java)
             intent.putExtra(SERIES_KEY, series)
             return intent
-
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

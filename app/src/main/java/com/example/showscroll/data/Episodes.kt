@@ -2,18 +2,18 @@ package com.example.showscroll.data
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-
 @Parcelize
-data class Series(
-    val genres: List<String>,
+data class Episodes(
     val id: Int,
-    val image: ImageSerie?,
     val name: String,
+    val season: Int,
+    val number: Int,
+    val image: ImageEpisodes?,
     val summary: String?,
-    val type: String,
+    val runtime: Int,
 ) : Parcelable
 @Parcelize
-data class ImageSerie(
+data class ImageEpisodes(
     val medium: String,
     val original: String?
-) : Parcelable
+): Parcelable

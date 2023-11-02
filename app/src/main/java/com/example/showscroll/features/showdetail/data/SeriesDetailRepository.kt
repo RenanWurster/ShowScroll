@@ -1,6 +1,6 @@
 package com.example.showscroll.features.showdetail.data
 
-import com.example.retrofit.seriesdetail.domain.Seasons
+import com.example.showscroll.data.Seasons
 import com.example.showscroll.data.ApiService
 import javax.inject.Inject
 
