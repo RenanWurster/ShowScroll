@@ -3,87 +3,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scrollViewEpisodeDetail"
+        android:id="@+id/scrollViewRvEpisodes"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageEpisodeDetail"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:contentDescription="@null"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_film_place_holder"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:cardCornerRadius="8dp">
 
+                <ImageView
+                    android:id="@+id/imageEpisodeDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_film_place_holder" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtGenresRunTimeEpisode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/txtNameEpisodeDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test test test"
-                android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageEpisodeDetail"
-                tools:text="Name Episode" />
+                android:text="Episode name"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:paddingTop="16dp"
+                android:textStyle="bold"/>
 
-            <ScrollView
-                android:id="@+id/scrollViewEpisodesDetail"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewEpisodeDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/txtNameFilmDetail"
-                tools:ignore="NestedScrolling">
+                android:layout_margin="8dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp">
 
-                <LinearLayout
+                <ScrollView
+                    android:id="@+id/scrollViewEpisodeDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    tools:ignore="NestedScrolling">
 
-
-                    <TextView
-                        android:id="@+id/txtGenresRunTimeEpisode"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Time"
-                        android:textSize="22sp" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/txtEpisodeDetail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Test teste teste test test test test teste s aisjido a adij soia"
-                        android:textSize="22sp" />
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/txtSummaryEpisodeDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Episode description..."
+                            android:textSize="22sp"/>
 
-            </ScrollView>
+                        <!-- Se precisar de outros elementos na atividade do EpisodeDetail, adicione aqui. -->
+                    </LinearLayout>
+                </ScrollView>
+            </androidx.cardview.widget.CardView>
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvCharacters"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="60dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/scrollViewSeriesDetail" />
+            <!-- Adicione outros elementos, como RecyclerView, conforme necessário. -->
 
         </LinearLayout>
-
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

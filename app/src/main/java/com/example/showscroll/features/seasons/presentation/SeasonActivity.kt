@@ -11,6 +11,7 @@ import com.example.showscroll.data.Episodes
 import com.example.showscroll.data.Seasons
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.activity.viewModels
+import com.example.showscroll.data.Series
 import com.example.showscroll.databinding.ActivitySeasonsBinding
 import com.example.showscroll.features.episodedetail.presentation.EpisodesDetail
 
@@ -18,7 +19,6 @@ import com.example.showscroll.features.episodedetail.presentation.EpisodesDetail
 class SeasonActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySeasonsBinding
     private lateinit var seasons: Seasons
-    //private lateinit var episodes: Episodes
     private val seasonViewModel: SeasonViewModel by viewModels()
     private  var episodesAdapter = EpisodesAdapter(::episodesClickListener)
 
@@ -46,6 +46,7 @@ class SeasonActivity : AppCompatActivity() {
         binding.rvEpisodes.adapter = episodesAdapter
 
         binding.txtPremiereDate.text = seasons.episodeOrder.toString()
+        binding.txtSeasonNumber.text = seasons.number.toString()
 
         binding.imageSeason.load(seasons.image?.original)
         {
