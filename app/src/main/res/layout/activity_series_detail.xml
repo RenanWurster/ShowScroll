@@ -3,87 +3,88 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:id="@+id/scrollViewRvSeasons"
         android:layout_width="match_parent"
-        android:layout_height="650dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageFilmDetail"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:contentDescription="@null"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_film_place_holder"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:cardCornerRadius="8dp">
 
+                <ImageView
+                    android:id="@+id/imageFilmDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_film_place_holder" />
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/txtNameFilmDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="test test test"
-                android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageFilmDetail"
-                tools:text="Name Film" />
-
-            <ScrollView
-                android:id="@+id/scrollViewSeriesDetail"
+                android:text="Film name"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:paddingTop="16dp"
+                android:textStyle="bold"/>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewSeriesDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/txtNameFilmDetail"
-                tools:ignore="NestedScrolling">
+                android:layout_margin="8dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp">
 
-                <LinearLayout
+                <ScrollView
+                    android:id="@+id/scrollViewSeriesDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    tools:ignore="NestedScrolling">
 
-
-                    <TextView
-                        android:id="@+id/txtGenresFilmDetail"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="action, suspense"
-                        android:textSize="22sp" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/txtfilmDetail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Test teste teste test test test test teste s aisjido a adij soia"
-                        android:textSize="22sp" />
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/txtGenresFilmDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Action, Suspense"
+                            android:textSize="18sp"
+                            android:textStyle="italic"/> <!-- Texto em negrito -->
 
-            </ScrollView>
-
+                        <TextView
+                            android:id="@+id/txtfilmDetail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Film description..."
+                            android:textSize="22sp"/>
+                    </LinearLayout>
+                </ScrollView>
+            </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSeasons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="60dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/scrollViewSeriesDetail" />
-
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </LinearLayout>
-
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

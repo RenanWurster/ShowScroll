@@ -3,6 +3,8 @@ package com.example.showscroll.features.showdetail.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
+import android.text.Spanned
 import android.util.Log
 import android.view.MenuItem
 import androidx.activity.viewModels
@@ -51,9 +53,14 @@ class ShowDetailActivity : AppCompatActivity() {
             crossfade(true)
             transformations(RoundedCornersTransformation(15f))
         }
-        binding.txtfilmDetail.text = series.summary
+
+        val formattedSummary = removeHtmlTags(series.summary ?: "")
+        binding.txtfilmDetail.text = formattedSummary
+
         binding.txtNameFilmDetail.text = series.name
-        binding.txtGenresFilmDetail.text = series.genres.toString()
+
+        val formattedGenres = series.genres.joinToString(", ")
+        binding.txtGenresFilmDetail.text = formattedGenres
 
         series.id?.let { showDetailViewModel.getSeasonsById(it) }
 
@@ -71,5 +78,9 @@ class ShowDetailActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun removeHtmlTags(htmlText: String): Spanned {
+        return Html.fromHtml(htmlText, null, null)
     }
 }
