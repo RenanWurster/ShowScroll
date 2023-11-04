@@ -12,6 +12,7 @@ import com.example.showscroll.data.Seasons
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.activity.viewModels
 import com.example.showscroll.databinding.ActivitySeasonsBinding
+import com.example.showscroll.features.episodedetail.presentation.EpisodesDetail
 
 @AndroidEntryPoint
 class SeasonActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class SeasonActivity : AppCompatActivity() {
     private  var episodesAdapter = EpisodesAdapter(::episodesClickListener)
 
     private fun episodesClickListener(episodes: Episodes) {
-        //startActivity(EpisodesDetail.createIntent2(this,episodes))
+        startActivity(EpisodesDetail.createIntent2(this, episodes))
     }
 
     companion object {
