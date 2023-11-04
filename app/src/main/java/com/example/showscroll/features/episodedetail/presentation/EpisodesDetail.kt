@@ -3,6 +3,8 @@ package com.example.showscroll.features.episodedetail.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Html
+import android.text.Spanned
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
@@ -37,8 +39,15 @@ class EpisodesDetail : AppCompatActivity() {
         episodes = intent.extras?.get(EPISODES_KEY) as Episodes
 
         binding.imageEpisodeDetail.load(episodes.image?.original)
-        binding.txtEpisodeDetail.text = episodes.summary
+
+        val formattedSummary = removeHtmlTags(episodes.summary ?: "")
+        binding.txtSummaryEpisodeDetail.text = formattedSummary
+
         binding.txtGenresRunTimeEpisode.text = episodes.runtime.toString()
         binding.txtNameEpisodeDetail.text = episodes.name
+    }
+
+    private fun removeHtmlTags(htmlText: String): Spanned {
+        return Html.fromHtml(htmlText, null, null)
     }
 }
