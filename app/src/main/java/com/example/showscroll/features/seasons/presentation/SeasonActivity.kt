@@ -3,6 +3,7 @@ package com.example.showscroll.features.seasons.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import coil.load
@@ -45,6 +46,8 @@ class SeasonActivity : AppCompatActivity() {
         seasons = intent.extras?.get(SEASONS_KEY) as Seasons
         binding.rvEpisodes.adapter = episodesAdapter
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         binding.txtPremiereDate.text = seasons.episodeOrder.toString()
         binding.txtSeasonNumber.text = seasons.number.toString()
 
@@ -56,11 +59,16 @@ class SeasonActivity : AppCompatActivity() {
 
         seasons.id?.let { seasonViewModel.getEpisodesById(it) }
         seasonViewModel.episodes.observe(this, Observer {
-            episodes -> episodes?.let {
-                episodesAdapter.submitList(it)
+                episodes -> episodes?.let {
+            episodesAdapter.submitList(it)
         }
         })
-
-
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressedDispatcher.onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
