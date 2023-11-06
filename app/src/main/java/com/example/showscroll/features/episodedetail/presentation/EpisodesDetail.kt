@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.text.Spanned
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
@@ -38,6 +39,8 @@ class EpisodesDetail : AppCompatActivity() {
 
         episodes = intent.extras?.get(EPISODES_KEY) as Episodes
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         binding.imageEpisodeDetail.load(episodes.image?.original)
 
         val formattedSummary = removeHtmlTags(episodes.summary ?: "")
@@ -45,6 +48,14 @@ class EpisodesDetail : AppCompatActivity() {
 
         binding.txtGenresRunTimeEpisode.text = episodes.runtime.toString()
         binding.txtNameEpisodeDetail.text = episodes.name
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressedDispatcher.onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun removeHtmlTags(htmlText: String): Spanned {
