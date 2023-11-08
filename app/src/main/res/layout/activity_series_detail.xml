@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/design_default_color_on_secondary"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -40,11 +41,13 @@
                 android:textSize="30sp"
                 android:gravity="center"
                 android:paddingTop="16dp"
+                android:textColor="@color/white"
                 android:textStyle="bold"/>
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewSeriesDetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/design_default_color_on_secondary"
                 android:layout_margin="8dp"
                 app:cardElevation="4dp"
                 app:cardCornerRadius="8dp">
@@ -58,12 +61,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/design_default_color_on_secondary"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/txtGenresFilmDetail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/white"
                             android:text="Action, Suspense"
                             android:textSize="18sp"
                             android:textStyle="italic"/> <!-- Texto em negrito -->
@@ -72,6 +77,7 @@
                             android:id="@+id/txtfilmDetail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/white"
                             android:text="Film description..."
                             android:textSize="22sp"/>
                     </LinearLayout>
@@ -87,4 +93,3 @@
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
-
