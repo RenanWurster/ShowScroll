@@ -48,8 +48,8 @@ class SeasonActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.txtPremiereDate.text = seasons.episodeOrder.toString()
-        binding.txtSeasonNumber.text = seasons.number.toString()
+        binding.txtPremiereDate.text = "Episodes: ${seasons.episodeOrder}"
+        binding.txtSeasonNumber.text = "Season: ${seasons.number}"
 
         binding.imageSeason.load(seasons.image?.original)
         {
