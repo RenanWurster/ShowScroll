@@ -10,6 +10,8 @@ data class Seasons(
     val number: Int?,
     val summary: String?,
     val episodeOrder: Int?,
+    val premiereDate: String?,
+    val endDate: String?,
     val image: ImageSeasons?
 ) : Parcelable
 @Parcelize
