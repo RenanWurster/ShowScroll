@@ -12,9 +12,10 @@ import com.example.showscroll.data.Episodes
 import com.example.showscroll.data.Seasons
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.activity.viewModels
-import com.example.showscroll.data.Series
 import com.example.showscroll.databinding.ActivitySeasonsBinding
 import com.example.showscroll.features.episodedetail.presentation.EpisodesDetail
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @AndroidEntryPoint
 class SeasonActivity : AppCompatActivity() {
@@ -50,7 +51,12 @@ class SeasonActivity : AppCompatActivity() {
 
         "Season: ${seasons.number}".also { binding.txtSeasonNumber.text = it }
         "Episodes: ${seasons.episodeOrder}".also { binding.txtPremiereDate.text = it }
-        "Premiere Date: ${seasons.premiereDate} End Date: ${seasons.endDate}".also { binding.txtEndDate.text= it }
+
+        val premiereDateFormatted = seasons.premiereDate?.let { formatDate(it) }
+        val endDateFormatted = seasons.endDate?.let { formatDate(it) }
+
+        val formattedText = "Premiered: $premiereDateFormatted   Ended: $endDateFormatted"
+        binding.txtEndDate.text = formattedText
 
 
         binding.imageSeason.load(seasons.image?.original)
@@ -72,5 +78,13 @@ class SeasonActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun formatDate(dateString: String): String? {
+        val formatterFromAPI = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val desiredFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+
+        val date = formatterFromAPI.parse(dateString)
+        return date?.let { desiredFormat.format(it) }
     }
 }

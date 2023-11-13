@@ -17,6 +17,8 @@ import com.example.showscroll.data.Series
 import com.example.showscroll.databinding.ActivitySeriesDetailBinding
 import com.example.showscroll.features.seasons.presentation.SeasonActivity
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @AndroidEntryPoint
 class ShowDetailActivity : AppCompatActivity() {
@@ -62,6 +64,12 @@ class ShowDetailActivity : AppCompatActivity() {
         val formattedGenres = series.genres.joinToString(", ")
         binding.txtGenresFilmDetail.text = formattedGenres
 
+        val premieredDate = series.premiered?.let { formatDate(it) }
+        val endedDate = series.ended?.let { formatDate(it) }
+
+        val formattedText = "Premiered: $premieredDate       Ended: $endedDate"
+        binding.txtDateAndSeasonNumber.text = formattedText
+
         series.id?.let { showDetailViewModel.getSeasonsById(it) }
 
         showDetailViewModel.seasons.observe(this, Observer {
@@ -82,5 +90,13 @@ class ShowDetailActivity : AppCompatActivity() {
 
     private fun removeHtmlTags(htmlText: String): Spanned {
         return Html.fromHtml(htmlText, null, null)
+    }
+
+    private fun formatDate(dateString: String): String? {
+        val formatterFromAPI = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val desiredFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+
+        val date = formatterFromAPI.parse(dateString)
+        return date?.let { desiredFormat.format(it) }
     }
 }

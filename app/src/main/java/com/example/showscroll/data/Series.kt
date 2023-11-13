@@ -10,6 +10,8 @@ data class Series(
     val image: ImageSerie?,
     val name: String,
     val summary: String?,
+    val premiered: String?,
+    val ended: String?,
     val type: String,
 ) : Parcelable
 @Parcelize
