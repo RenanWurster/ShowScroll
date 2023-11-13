@@ -37,6 +37,8 @@
                 android:id="@+id/txtGenresRunTimeEpisode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:gravity="center"
                 android:textColor="@color/white"
                 android:text="Time"
                 android:textSize="22sp" />
@@ -76,6 +78,7 @@
                             android:id="@+id/txtSummaryEpisodeDetail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:textColor="@color/cardview_light_background"
                             android:text="Episode description..."
                             android:textSize="22sp"/>
