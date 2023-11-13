@@ -21,7 +21,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="480dp"
+                android:layout_height="516dp"
                 app:cardCornerRadius="8dp">
 
                 <ImageView
@@ -43,6 +43,7 @@
                 android:paddingTop="16dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewSeriesDetail"
                 android:layout_width="match_parent"
@@ -65,13 +66,25 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txtDateAndSeasonNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="Action, Suspense"
+                            android:gravity="center"
+                            android:textSize="18sp"
+                            android:textStyle="italic"
+                            android:paddingBottom="8dp"/>
+
+                        <TextView
                             android:id="@+id/txtGenresFilmDetail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/white"
                             android:text="Action, Suspense"
                             android:textSize="18sp"
-                            android:textStyle="italic"/> <!-- Texto em negrito -->
+                            android:textStyle="italic"
+                            android:paddingBottom="8dp"/>
 
                         <TextView
                             android:id="@+id/txtfilmDetail"
@@ -88,6 +101,7 @@
                 android:id="@+id/rvSeasons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="-16dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </LinearLayout>
