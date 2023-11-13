@@ -39,7 +39,7 @@
             <ImageView
                 android:id="@+id/imageSeason"
                 android:layout_width="match_parent"
-                android:layout_height="480dp"
+                android:layout_height="520dp"
                 android:contentDescription="@null"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_film_place_holder"
