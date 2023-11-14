@@ -21,7 +21,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="528dp"
+                android:layout_height="560dp"
                 app:cardCornerRadius="8dp">
 
                 <ImageView
@@ -101,7 +101,7 @@
                 android:id="@+id/rvSeasons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-16dp"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </LinearLayout>
