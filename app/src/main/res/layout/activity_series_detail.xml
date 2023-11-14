@@ -21,7 +21,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="516dp"
+                android:layout_height="528dp"
                 app:cardCornerRadius="8dp">
 
                 <ImageView
@@ -70,8 +70,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/white"
-                            android:text="Action, Suspense"
-                            android:gravity="center"
+                            android:text="Primiered and Ended"
+                            android:gravity="start"
                             android:textSize="18sp"
                             android:textStyle="italic"
                             android:paddingBottom="8dp"/>

@@ -46,8 +46,8 @@ class EpisodesDetail : AppCompatActivity() {
         val formattedSummary = removeHtmlTags(episodes.summary ?: "")
         binding.txtSummaryEpisodeDetail.text = formattedSummary
 
-        binding.txtGenresRunTimeEpisode.text = episodes.runtime.toString()
-        "${episodes.runtime} Minutes".also { binding.txtGenresRunTimeEpisode.text = it }
+        binding.txtRunTimeEpisode.text = episodes.runtime.toString()
+        "${episodes.runtime} Minutes".also { binding.txtRunTimeEpisode.text = it }
         binding.txtNameEpisodeDetail.text = episodes.name
     }
 
