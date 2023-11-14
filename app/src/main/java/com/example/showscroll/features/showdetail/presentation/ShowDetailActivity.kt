@@ -67,7 +67,7 @@ class ShowDetailActivity : AppCompatActivity() {
         val premieredDate = series.premiered?.let { formatDate(it) }
         val endedDate = series.ended?.let { formatDate(it) }
 
-        val formattedText = "Premiered: $premieredDate       Ended: $endedDate"
+        val formattedText = "Premiered: $premieredDate  Ended: $endedDate"
         binding.txtDateAndSeasonNumber.text = formattedText
 
         series.id?.let { showDetailViewModel.getSeasonsById(it) }
