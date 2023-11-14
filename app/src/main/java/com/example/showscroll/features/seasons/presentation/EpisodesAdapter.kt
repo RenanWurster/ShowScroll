@@ -39,7 +39,7 @@ class EpisodesAdapter (private val callback: (Episodes) -> Unit) :
 
                 val ivEpisodes = findViewById<ImageView>(R.id.ivEpisode)
                 val txtEpisodesName = findViewById<TextView>(R.id.txtEpisodeName)
-                txtEpisodesName.text = "Episode:${data.name}"
+                txtEpisodesName.text = "Episode: ${data.name}"
 
                 ivEpisodes.setOnClickListener {
                     callback.invoke(data)

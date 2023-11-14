@@ -25,10 +25,13 @@
       </intent-filter>
     </activity>
     <activity android:name="com.example.showscroll.features.showdetail.presentation.ShowDetailActivity"
+        android:label=""
         android:parentActivityName=".features.showdetail.presentation.ShowDetailActivity"/>
     <activity android:name="com.example.showscroll.features.seasons.presentation.SeasonActivity"
+        android:label=""
         />
     <activity android:name="com.example.showscroll.features.episodedetail.presentation.EpisodesDetail"
+        android:label=""
         />
   </application>
 

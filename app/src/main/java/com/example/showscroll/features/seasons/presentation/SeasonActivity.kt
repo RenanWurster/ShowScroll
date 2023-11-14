@@ -49,8 +49,7 @@ class SeasonActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        "Season: ${seasons.number}".also { binding.txtSeasonNumber.text = it }
-        "Episodes: ${seasons.episodeOrder}".also { binding.txtPremiereDate.text = it }
+        "Season: ${seasons.number}   Episodes: ${seasons.episodeOrder}".also { binding.txtSeasonNumber.text = it }
 
         val premiereDateFormatted = seasons.premiereDate?.let { formatDate(it) }
         val endDateFormatted = seasons.endDate?.let { formatDate(it) }
