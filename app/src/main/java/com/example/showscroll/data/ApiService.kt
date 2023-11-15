@@ -11,6 +11,9 @@ interface ApiService {
   @GET("/shows/{id}/seasons")
   suspend fun getSeasons(@Path("id") id : Int): List<Seasons>
 
+  @GET("/shows/{id}/cast")
+  suspend fun getCast(@Path("id") id : Int): List<Seasons>
+
   @GET("/seasons/{id}/episodes")
   suspend fun getEpisodes(@Path("id") id : Int): List<Episodes>
 

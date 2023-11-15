@@ -13,9 +13,15 @@ data class Series(
     val premiered: String?,
     val ended: String?,
     val type: String,
+    val rating: Rating
 ) : Parcelable
 @Parcelize
 data class ImageSerie(
     val medium: String,
     val original: String?
+) : Parcelable
+
+@Parcelize
+data class Rating(
+    val average: Double
 ) : Parcelable
