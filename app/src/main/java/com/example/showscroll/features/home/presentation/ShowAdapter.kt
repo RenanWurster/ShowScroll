@@ -31,11 +31,17 @@ class ShowAdapter(private val callback: (Series) -> Unit) :
 
     class SeriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val seriesImage: ImageView? = itemView.findViewById(R.id.ivSerie)
+        private val ratingStar: ImageView? = itemView.findViewById(R.id.imgRatingStar)
         private val seriesText: TextView? = itemView.findViewById(R.id.txtSerie)
+        private val seriesRating: TextView? = itemView.findViewById(R.id.txtRating)
+        private val seriesGenres: TextView? = itemView.findViewById(R.id.txtGenres)
 
         @ExperimentalCoroutinesApi
         fun bind(data: Series, callback: (Series) -> Unit) {
             seriesText?.text = data.name
+            seriesRating?.text = data.rating.average.toString()
+            seriesGenres?.text = data.genres.toList().toString()
+            ratingStar?.visibility = View.VISIBLE
 
             itemView.setOnClickListener {
                 callback.invoke(data)
