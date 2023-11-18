@@ -40,7 +40,12 @@ class ShowAdapter(private val callback: (Series) -> Unit) :
         fun bind(data: Series, callback: (Series) -> Unit) {
             seriesText?.text = data.name
             seriesRating?.text = data.rating.average.toString()
-            seriesGenres?.text = data.genres.toList().toString()
+
+            val genresList = data.genres.toList() // convert to list
+            val formattedGenres = genresList.joinToString(", ") // format list in String
+
+            seriesGenres?.text = formattedGenres
+
             ratingStar?.visibility = View.VISIBLE
 
             itemView.setOnClickListener {
