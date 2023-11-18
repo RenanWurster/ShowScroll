@@ -61,6 +61,8 @@ class ShowDetailActivity : AppCompatActivity() {
 
         binding.txtNameFilmDetail.text = series.name
 
+        binding.txtRating.text = series.rating.average.toString()
+
         val formattedGenres = series.genres.joinToString(", ")
         binding.txtGenresFilmDetail.text = formattedGenres
 
