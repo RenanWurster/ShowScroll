@@ -7,11 +7,13 @@ import android.text.Html
 import android.text.Spanned
 import android.util.Log
 import android.view.MenuItem
+import android.widget.ImageButton
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import com.example.showscroll.R
 import com.example.showscroll.data.Seasons
 import com.example.showscroll.data.Series
 import com.example.showscroll.databinding.ActivitySeriesDetailBinding
@@ -54,6 +56,12 @@ class ShowDetailActivity : AppCompatActivity() {
         {
             crossfade(true)
             transformations(RoundedCornersTransformation(15f))
+        }
+
+        setSupportActionBar(findViewById(R.id.toolbar))
+
+        findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
+            onBackPressed()
         }
 
         val formattedSummary = removeHtmlTags(series.summary ?: "")
