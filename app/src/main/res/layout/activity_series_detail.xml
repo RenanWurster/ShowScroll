@@ -33,7 +33,7 @@
                     android:src="@drawable/ic_film_place_holder" />
 
               <androidx.appcompat.widget.Toolbar
-                  android:id="@+id/toolbar"
+                  android:id="@+id/toolbarDetail"
                   android:layout_width="match_parent"
                   android:layout_height="?attr/actionBarSize"
                   android:elevation="4dp"
@@ -44,7 +44,7 @@
                   >
 
                 <ImageButton
-                    android:id="@+id/btnBack"
+                    android:id="@+id/btnBackDetail"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:background="?attr/selectableItemBackgroundBorderless"

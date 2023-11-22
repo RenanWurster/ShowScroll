@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import coil.load
@@ -12,6 +13,7 @@ import com.example.showscroll.data.Episodes
 import com.example.showscroll.data.Seasons
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.activity.viewModels
+import com.example.showscroll.R
 import com.example.showscroll.databinding.ActivitySeasonsBinding
 import com.example.showscroll.features.episodedetail.presentation.EpisodesDetail
 import java.text.SimpleDateFormat
@@ -48,6 +50,12 @@ class SeasonActivity : AppCompatActivity() {
         binding.rvEpisodes.adapter = episodesAdapter
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        setSupportActionBar(findViewById(R.id.toolbarSeason))
+
+        findViewById<ImageButton>(R.id.btnBackSeason).setOnClickListener {
+            onBackPressed()
+        }
 
         "Season: ${seasons.number}   Episodes: ${seasons.episodeOrder}".also { binding.txtSeasonNumber.text = it }
 
