@@ -58,9 +58,9 @@ class ShowDetailActivity : AppCompatActivity() {
             transformations(RoundedCornersTransformation(15f))
         }
 
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setSupportActionBar(findViewById(R.id.toolbarDetail))
 
-        findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
+        findViewById<ImageButton>(R.id.btnBackDetail).setOnClickListener {
             onBackPressed()
         }
 
