@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.text.Html
 import android.text.Spanned
 import android.view.MenuItem
+import android.widget.ImageButton
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
+import com.example.showscroll.R
 import com.example.showscroll.data.Episodes
 import com.example.showscroll.databinding.ActivityEpisodesDetailBinding
 import com.example.showscroll.features.seasons.presentation.SeasonViewModel
@@ -40,6 +42,12 @@ class EpisodesDetail : AppCompatActivity() {
         episodes = intent.extras?.get(EPISODES_KEY) as Episodes
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        setSupportActionBar(findViewById(R.id.toolbarEpisode))
+
+        findViewById<ImageButton>(R.id.btnBackEpisode).setOnClickListener {
+            onBackPressed()
+        }
 
         binding.imageEpisodeDetail.load(episodes.image?.original)
 

@@ -34,6 +34,7 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         />
     <activity android:name="com.example.showscroll.features.episodedetail.presentation.EpisodesDetail"
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:label=""
         />
   </application>
