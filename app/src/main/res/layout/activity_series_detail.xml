@@ -41,12 +41,16 @@
                   app:layout_constraintEnd_toEndOf="parent"
                   app:layout_constraintStart_toStartOf="parent"
                   app:layout_constraintTop_toTopOf="parent"
+                  android:contentInsetStart="0dp"
+                  app:contentInsetStart="0dp"
+                  app:contentInsetStartWithNavigation="0dp"
                   >
 
                 <ImageButton
                     android:id="@+id/btnBackDetail"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:layout_marginStart="-8dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/appbar_scrolling_view_behavior"
                     android:padding="16dp"
