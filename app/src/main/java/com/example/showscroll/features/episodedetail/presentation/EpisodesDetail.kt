@@ -55,7 +55,7 @@ class EpisodesDetail : AppCompatActivity() {
         binding.txtSummaryEpisodeDetail.text = formattedSummary
 
         binding.txtRunTimeEpisode.text = episodes.runtime.toString()
-        "${episodes.runtime} Minutes".also { binding.txtRunTimeEpisode.text = it }
+        "  ${episodes.runtime} Min".also { binding.txtRunTimeEpisode.text = it }
         binding.txtNameEpisodeDetail.text = episodes.name
     }
 
