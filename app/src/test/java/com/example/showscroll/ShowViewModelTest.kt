@@ -3,6 +3,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.showscroll.data.ApiService
 import com.example.showscroll.data.ImageSerie
 import com.example.showscroll.data.Rating
+import com.example.showscroll.data.SearchSeries
 import com.example.showscroll.data.Series
 import com.example.showscroll.features.home.data.SeriesRepository
 import com.example.showscroll.features.home.presentation.ShowViewModel
@@ -19,6 +20,8 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 
 @ExperimentalCoroutinesApi
 class ShowViewModelTest {
@@ -29,6 +32,7 @@ class ShowViewModelTest {
   private lateinit var viewModel: ShowViewModel
   private lateinit var seriesRepository: SeriesRepository
   private val testDispatcher = TestCoroutineDispatcher()
+  private lateinit var searchSeries: SearchSeries
 
   @Before
   fun setup() {
@@ -72,31 +76,49 @@ class ShowViewModelTest {
     assertEquals(seriesList, result)
   }
 
-  /*@Test
+  @Test
   fun `test search function with empty query`() {
     // Given
-    val seriesList = listOf(Series(
-      genres = listOf("Action", "Drama"),
-      id = 1,
-      image = ImageSerie(medium = "url_to_medium_image", original = "url_to_original_image"),
-      name = "Series 1",
-      summary = "Summary of the series",
-      premiered = "2023-01-01",
-      ended = "2023-12-31",
-      type = "TV",
-      rating = Rating(average = 9.0)
-    ))
-    val liveData = MutableLiveData<List<Series>>()
-    liveData.value = seriesList
+    val query = "Series 1"
+    val searchResults = listOf(
+      SearchSeries(
+        show = Series(
+          genres = listOf("Action", "Drama"),
+          id = 1,
+          image = ImageSerie(medium = "url_to_medium_image", original = "url_to_original_image"),
+          name = "Series 1",
+          summary = "Summary of the series",
+          premiered = "2023-01-01",
+          ended = "2023-12-31",
+          type = "TV",
+          rating = Rating(average = 9.0)
+        )
+      )
+    )
+
+    val apiService = mockk<ApiService> {
+      coEvery { searchShows(query) } returns searchResults
+    }
+
+    val seriesRepository = SeriesRepository(apiService)
+    val viewModel = ShowViewModel(seriesRepository)
 
     // When
-    viewModel.onSearch("")
+    viewModel.onSearch(query)
 
     // Then
-    assert(viewModel.series.value == seriesList)
+    // Then
+    val latch = CountDownLatch(1)
+
+    viewModel.series.observeForever { series ->
+      assertEquals(searchResults.map { it.show }, series)
+      latch.countDown()
+    }
+
+    latch.await(2, TimeUnit.SECONDS)
   }
 
-  @Test
+  /*@Test
   fun `test search function with non-empty query`() {
     // Given
     val query = "Series 1"
