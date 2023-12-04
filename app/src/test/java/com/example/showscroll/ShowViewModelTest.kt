@@ -50,17 +50,19 @@ class ShowViewModelTest {
   @Test
   fun `test if series are loaded on init`() = runBlockingTest {
     // Given
-    val seriesList = listOf(Series(
-      genres = listOf("Action", "Drama"),
-      id = 1,
-      image = ImageSerie(medium = "url_to_medium_image", original = "url_to_original_image"),
-      name = "Series 1",
-      summary = "Summary of the series",
-      premiered = "2023-01-01",
-      ended = "2023-12-31",
-      type = "TV",
-      rating = Rating(average = 9.0)
-    ))
+    val seriesList = listOf(
+      Series(
+        genres = listOf("Action", "Drama"),
+        id = 1,
+        image = ImageSerie(medium = "url_to_medium_image", original = "url_to_original_image"),
+        name = "Series 1",
+        summary = "Summary of the series",
+        premiered = "2023-01-01",
+        ended = "2023-12-31",
+        type = "TV",
+        rating = Rating(average = 9.0)
+      )
+    )
 
     val apiService = mockk<ApiService> {
       coEvery { getSeries() } returns seriesList
@@ -77,7 +79,7 @@ class ShowViewModelTest {
   }
 
   @Test
-  fun `test search function with empty query`() {
+  fun `test search function with non-empty query`() {
     // Given
     val query = "Series 1"
     val searchResults = listOf(
@@ -107,7 +109,6 @@ class ShowViewModelTest {
     viewModel.onSearch(query)
 
     // Then
-    // Then
     val latch = CountDownLatch(1)
 
     viewModel.series.observeForever { series ->
@@ -118,21 +119,23 @@ class ShowViewModelTest {
     latch.await(2, TimeUnit.SECONDS)
   }
 
-  /*@Test
-  fun `test search function with non-empty query`() {
+  @Test
+  fun `test search function with empty query`() {
     // Given
-    val query = "Series 1"
-    val searchResults = listOf(Series(
-      genres = listOf("Action", "Drama"),
-      id = 1,
-      image = ImageSerie(medium = "url_to_medium_image", original = "url_to_original_image"),
-      name = "Series 1",
-      summary = "Summary of the series",
-      premiered = "2023-01-01",
-      ended = "2023-12-31",
-      type = "TV",
-      rating = Rating(average = 9.0)
-    ))
+    val query = ""
+    val searchResults = listOf(
+      Series(
+        genres = listOf("Action", "Drama"),
+        id = 1,
+        image = ImageSerie(medium = "url_to_medium_image", original = "url_to_original_image"),
+        name = "Series 1",
+        summary = "Summary of the series",
+        premiered = "2023-01-01",
+        ended = "2023-12-31",
+        type = "TV",
+        rating = Rating(average = 9.0)
+      )
+    )
     val liveData = MutableLiveData<List<Series>>()
     liveData.value = searchResults
 
@@ -140,6 +143,13 @@ class ShowViewModelTest {
     viewModel.onSearch(query)
 
     // Then
-    assert(viewModel.series.value == searchResults)
-  }*/
+    val latch = CountDownLatch(1)
+
+    viewModel.series.observeForever { series ->
+      assertEquals(searchResults, series)
+      latch.countDown()
+    }
+
+    latch.await(2, TimeUnit.SECONDS)
+  }
 }
