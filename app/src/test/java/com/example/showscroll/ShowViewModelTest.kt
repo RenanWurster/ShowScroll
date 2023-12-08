@@ -32,7 +32,6 @@ class ShowViewModelTest {
   private lateinit var viewModel: ShowViewModel
   private lateinit var seriesRepository: SeriesRepository
   private val testDispatcher = TestCoroutineDispatcher()
-  private lateinit var searchSeries: SearchSeries
 
   @Before
   fun setup() {
@@ -68,13 +67,13 @@ class ShowViewModelTest {
       coEvery { getSeries() } returns seriesList
     }
 
-    // Configurando o SeriesRepository com o ApiService mockado
+    // Setting up the SeriesRepository with the mocked ApiService
     val seriesRepository = SeriesRepository(apiService)
 
-    // Chamada ao método dentro de um contexto de teste de coroutine
+    // Call to the method within a coroutine test context
     val result = seriesRepository.getSeries()
 
-    // Verificar se o resultado é o esperado
+    // Check if the result is as expected
     assertEquals(seriesList, result)
   }
 
