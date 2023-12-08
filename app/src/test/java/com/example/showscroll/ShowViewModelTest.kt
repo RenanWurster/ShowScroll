@@ -32,7 +32,6 @@ class ShowViewModelTest {
   private lateinit var viewModel: ShowViewModel
   private lateinit var seriesRepository: SeriesRepository
   private val testDispatcher = TestCoroutineDispatcher()
-  private lateinit var searchSeries: SearchSeries
 
   @Before
   fun setup() {
