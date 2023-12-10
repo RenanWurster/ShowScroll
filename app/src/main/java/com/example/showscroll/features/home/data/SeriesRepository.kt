@@ -13,6 +13,4 @@ class SeriesRepository @Inject constructor(private val apiService: ApiService) {
     suspend fun searchShows(name: String): List<SearchSeries> {
         return apiService.searchShows(name)
     }
-
-
 }
