@@ -53,10 +53,24 @@ class ShowSeasonViewModelTest {
           original = "url_to_original_image_episode_1"
         ),
         summary = "blablabblabla",
-        runtime = 2
+        runtime = 60
       ),
+
+    Episodes(
+      id = 2,
+      name = "Pilot",
+      season = 2,
+      number = 2,
+      image = ImageEpisodes
+        (
+        medium = "url_to_medium_image_episode_2",
+        original = "url_to_original_image_episode_2"
+      ),
+      summary = "blebleblebleble",
+      runtime = 60
+    ),
     )
-    val id = 1 // Sample ID
+    val id = 3 // Sample ID
 
     // Mock the behavior of your repository method
     coEvery { episodesRepository.getEpisodes(id) } returns expectedEpisodes
