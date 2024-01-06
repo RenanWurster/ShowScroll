@@ -49,6 +49,18 @@ class EpisodesDetail : AppCompatActivity() {
             onBackPressed()
         }
 
+        binding.shareButton.setOnClickListener {
+            val intent = Intent(Intent.ACTION_SEND)
+
+            intent.putExtra(Intent.EXTRA_TEXT, "i have a nice episode for you: ${episodes.name}")
+
+            val shareIntent = Intent.createChooser(intent, null)
+
+            intent.type = "text/plain"
+
+            startActivity(shareIntent)
+        }
+
         binding.imageEpisodeDetail.load(episodes.image?.original)
 
         val formattedSummary = removeHtmlTags(episodes.summary ?: "")
